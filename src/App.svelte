@@ -1,5 +1,5 @@
 <script>
-	import TicketContainer from './components/TicketContainer.svelte';
+	import Infocontainer from './components/InfoContainer.svelte';
 	
 	//PHOENIX JS
 	import { init } from '@phoenixlan/phoenix.js'
@@ -78,26 +78,30 @@
 		console.log(ticket)
 		return ticket
 	}
-	let ticketNum
+	let ticketNum = 1 // TEMP
 
 </script>
 
-<main lang="nb">
+<main>
 
 	{#if !authenticated}
 		<h1>Velkommen til Pheonix LAN sin innsjekk-side</h1>
 		<button on:click={login}>Logg Inn</button>
 	{:else}
-		<button on:click={logout}>Logg Ut</button>
+	
+		<nav>
+			<span>Phoenix Insjekk</span>
+			<button on:click={logout}>Logg Ut</button>
+		</nav>
 		<div class="formcontainer">
-			<label for="bilettNummerInput">Bilett Nummer:</label>
-			<input type="number" bind:value={ticketNum}>
+			<label for="ticketNumInput"><b>Bilett Nummer:</b></label>
+			<input name="ticketNumInput" type="number" bind:value={ticketNum}>
 		</div>
 		{#if ticketNum}
 			{#await fetchTicket(ticketNum)}
-			<i>Henter bilett...</i>
+			<i>Henter bilett info...</i>
 			{:then ticket}
-				<TicketContainer ticket={ticket}/>
+				<Infocontainer ticket={ticket}/>
 			{:catch error}
 				<p>Kunne ikke hente bilett data. Er dette ett gyldig bilett nummer?<br><br><i>{error}</i></p>
 			{/await}
@@ -106,6 +110,17 @@
 
 </main>
 <style>
+	main{
+		gap: 10px;
+	}
+	nav{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		padding: 5px;
+		width: 100vw;
+	}
 	main {
 		text-align: center;
 
@@ -126,6 +141,8 @@
 	}
 	button{
 		cursor:pointer;
+		padding: 7px;
+		margin-bottom: 0;
 	}
 
 	@media (min-width: 640px) {
