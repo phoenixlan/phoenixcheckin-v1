@@ -70,56 +70,58 @@
 		}
 	}
 	checkAuth()
-	
-	// TICKET HANDLING
-	import { Ticket } from '@phoenixlan/phoenix.js'
-	const fetchTicket = async (ticketNum) => {
-		const ticket = await Ticket.getTicket(ticketNum)
-		console.log(ticket)
-		return ticket
-	}
-	let ticketNum = 1 // TEMP
-
+	let ticketNum
 </script>
 
 <main>
 
 	{#if !authenticated}
-		<h1>Velkommen til Pheonix LAN sin innsjekk-side</h1>
+		<span>Velkommen til Pheonix LAN sin innsjekk-side</span>
 		<button on:click={login}>Logg Inn</button>
 	{:else}
-	
 		<nav>
-			<span>Phoenix Insjekk</span>
+			<a href="/">
+				<img src="./logo.svg" alt="">
+				<span>Phoenix Insjekk</span>
+			</a>
 			<button on:click={logout}>Logg Ut</button>
 		</nav>
 		<div class="formcontainer">
 			<label for="ticketNumInput"><b>Bilett Nummer:</b></label>
 			<input name="ticketNumInput" type="number" bind:value={ticketNum}>
 		</div>
-		{#if ticketNum}
-			{#await fetchTicket(ticketNum)}
-			<i>Henter bilett info...</i>
-			{:then ticket}
-				<Infocontainer ticket={ticket}/>
-			{:catch error}
-				<p>Kunne ikke hente bilett data. Er dette ett gyldig bilett nummer?<br><br><i>{error}</i></p>
-			{/await}
-		{/if}
+		<Infocontainer ticketNumber={ticketNum}/>
 	{/if}
 
 </main>
 <style>
-	main{
-		gap: 10px;
-	}
 	nav{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 
-		padding: 5px;
+		/* padding: 5px; */
 		width: 100vw;
+
+		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+	}
+	nav > *{
+		margin: 5px;
+		font-size: 1.5rem;
+	}
+	nav a {
+		display: flex;
+		align-items: center;
+		height:2rem;
+		gap: 5px;
+		color: inherit;
+		text-decoration: none;
+	}
+	nav img {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
 	}
 	main {
 		text-align: center;
@@ -134,14 +136,15 @@
 		align-items: center;
 		gap: 5px;
 
-		padding: 5px;
+		margin: 10px;
 	}
 	.formcontainer input{
 		margin-bottom: 0;
 	}
-	button{
+
+	:global(button){
 		cursor:pointer;
-		padding: 7px;
+		padding: 10px;
 		margin-bottom: 0;
 	}
 
