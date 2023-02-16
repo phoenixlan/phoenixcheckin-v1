@@ -67,7 +67,7 @@
 					<h2><span>Adresse: </span>{ticketOwner.address}</h2>
 				</section>
 			{/await}
-			<button class="{ticket.checked_in ? "checked-in":"not-checked-in"}" on:click={handleCheckinClick(ticket.ticket_id)}>Sjekk inn bilett</button>
+			<button class="{ticket.checked_in ? "checked-in":"not-checked-in"}" on:click|once={handleCheckinClick(ticket.ticket_id)}>Sjekk inn bilett</button>
 		{:catch error}
 			<p>Kunne ikke hente bilett data. Er dette ett gyldig bilett nummer?<br><br><i>{error}</i></p>
 		{/await}
