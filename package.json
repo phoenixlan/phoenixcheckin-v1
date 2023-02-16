@@ -8,8 +8,8 @@
     "start": "sirv public --no-clear"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -19,6 +19,9 @@
   },
   "dependencies": {
     "@phoenixlan/phoenix.js": "^2.26.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "dotenv": "^16.0.3",
     "sirv-cli": "^2.0.0"
   }
 }

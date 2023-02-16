@@ -1,15 +1,17 @@
 <script>
-	// asjdlkjasdlkj
 	import Infocontainer from './components/InfoContainer.svelte';
-	
+
 	//PHOENIX JS
 	import { init } from '@phoenixlan/phoenix.js'
-	init("https://api.test.phoenixlan.no")
+	init(__myapp.env.API_URL ?? "https://api.test.phoenixlan.no")
 	// AUTH
 	let authenticated = false
 	import { User } from '@phoenixlan/phoenix.js'
-	const baseURL= process.env.BASE_URL ?? "http://checkin.dev.phoenixlan.no:8080"
-	const client_id= "phoenix-checkin-localdev"
+	const baseURL = 
+	(__myapp.env.APP_HOST && __myapp.env.APP_PROTOCOL) 
+		? `${__myapp.env.APP_PROTOCOL}:\/\/${__myapp.env.APP_HOST}`  
+		: "http://checkin.dev.phoenixlan.no:8080"
+	const client_id= __myapp.env.API_OAUTH_CLIENT_ID ?? "phoenix-checkin-localdev"
 	
 	const login = () => {
 		const authUrl = User.getAuthenticationUrl(baseURL, client_id)
