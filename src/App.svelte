@@ -1,4 +1,5 @@
 <script>
+	// lakjld
 	import Infocontainer from './components/InfoContainer.svelte';
 	
 	//PHOENIX JS
