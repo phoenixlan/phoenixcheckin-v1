@@ -20,14 +20,9 @@
 	}
 
 	const getCheckinTime = (time) => {
-		if (time === null) {
-			return "Nei"
-		}
-		let d = new Date(time * 1000)
-		let day = d.getDay()
-		let month = d.getMonth()
-		let year = d.getFullYear()
-		return `${day}.${month}.${year}`
+		if (time === null){return "Nei"}
+		let date = new Date(time * 1000)
+		return date.toLocaleString()
 	}
 </script>
 

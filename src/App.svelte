@@ -5,11 +5,10 @@
 	import { init } from '@phoenixlan/phoenix.js'
 	init("https://api.test.phoenixlan.no")
 	// AUTH
-	import { User } from '@phoenixlan/phoenix.js'
-	const baseURL= "http://checkin.dev.phoenixlan.no:8080"
-	const client_id= "phoenix-checkin-localdev"
-	
 	let authenticated = false
+	import { User } from '@phoenixlan/phoenix.js'
+	const baseURL= process.env.BASE_URL ?? "http://checkin.dev.phoenixlan.no:8080"
+	const client_id= "phoenix-checkin-localdev"
 	
 	const login = () => {
 		const authUrl = User.getAuthenticationUrl(baseURL, client_id)
@@ -100,7 +99,6 @@
 		justify-content: space-between;
 		align-items: center;
 
-		/* padding: 5px; */
 		width: 100vw;
 
 		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
