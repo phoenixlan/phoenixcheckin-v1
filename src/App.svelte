@@ -78,7 +78,7 @@
 <main>
 
 	{#if !authenticated}
-		<span>Velkommen til Pheonix LAN sin innsjekk-side</span>
+		<span>Velkommen til Phoenix LAN sin innsjekk-side</span>
 		<button on:click={login}>Logg Inn</button>
 	{:else}
 		<nav>
