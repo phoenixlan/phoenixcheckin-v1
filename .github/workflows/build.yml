@@ -30,7 +30,7 @@ jobs:
           build-args: |
             API_URL=https://api.test.phoenixlan.no
             API_OAUTH_CLIENT_ID=phoenix-checkin
-            APP_HOST=checkin.phoenixlan.no
+            APP_HOST=checkin.test.phoenixlan.no
             APP_PROTOCOL=https
           file: "docker/production/Dockerfile"
           context: .
