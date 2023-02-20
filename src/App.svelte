@@ -75,8 +75,6 @@
 	let ticketNum
 </script>
 
-<main>
-
 	{#if !authenticated}
 		<span>Velkommen til Phoenix LAN sin innsjekk-side</span>
 		<button on:click={login}>Logg Inn</button>
@@ -86,16 +84,14 @@
 				<img src="./logo.svg" alt="">
 				<span>Phoenix Insjekk</span>
 			</a>
-			<button on:click={logout}>Logg Ut</button>
+			<button on:click={logout}>Logg ut</button>
 		</nav>
-		<div class="formcontainer">
-			<label for="ticketNumInput"><b>Bilett Nummer:</b></label>
-			<input name="ticketNumInput" type="number" bind:value={ticketNum}>
-		</div>
-		<Infocontainer ticketNumber={ticketNum}/>
+		<main>
+			<input placeholder="Bilett-ID" type="number" min="1" bind:value={ticketNum}>
+			<Infocontainer ticketNumber={ticketNum}/>
+		</main>
 	{/if}
 
-</main>
 <style>
 	nav{
 		display: flex;
@@ -125,22 +121,13 @@
 		max-height: 100%;
 	}
 	main {
+		margin: 20px;
 		text-align: center;
 
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-	}
-	.formcontainer{
-		display: flex;
-		align-items: center;
-		gap: 5px;
-
-		margin: 10px;
-	}
-	.formcontainer input{
-		margin-bottom: 0;
 	}
 
 	:global(button){
