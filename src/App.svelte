@@ -101,6 +101,16 @@
 		padding: 1em;
 		text-align: center;
 	}
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	/* Firefox */
+	input[type="number"] {
+		-moz-appearance: textfield;
+	}
 	.welcomecontainer {
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
 		border-radius: 0.25rem;
