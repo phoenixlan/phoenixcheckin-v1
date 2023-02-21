@@ -23,14 +23,14 @@ export function logout() {
 import { User } from '@phoenixlan/phoenix.js'
 
 export async function checkAuth() {
-    /// Create storage variable with information from local storage.
+    // Create storage variable with information from local storage.
     const storage = window.localStorage.getItem("auth")
     if(!storage){
         const url = new URL(window.location.href)
         const code = url.searchParams.get("code")
         if (code) {
             try {
-                /// Get token, refreshToken and set authstate  based on token & refreshToken.
+                // Get token, refreshToken and set authstate  based on token & refreshToken.
                 await User.Oauth.authenticateByCode(code);
                 
                 let Token 		 = await User.Oauth.getToken();
@@ -39,7 +39,7 @@ export async function checkAuth() {
                 await User.Oauth.setAuthState(Token, RefreshToken);
                 authenticated.set(true)
                 
-                /// Store user information in the local storage for later use.
+                // Store user information in the local storage for later use.
                 window.localStorage.setItem("auth", JSON.stringify({
                     token: 		  Token,
                     refreshToken: RefreshToken,
@@ -50,14 +50,14 @@ export async function checkAuth() {
                 console.error('[API] ' + e);
             }
         } else {
-            /// If there is no "auth" in the local storage, show login page.
+            // If there is no "auth" in the local storage, show login page.
             console.warn("Requested information was not found in the local storage.");
         }
     } else {
-        /// If storage contains "auth" with correct information.
+        // If storage contains "auth" with correct information.
         let object = JSON.parse(storage);
         if(object.token && object.refreshToken) {
-            /// Try to setAuthState with existing token & refreshToken.
+            // Try to setAuthState with existing token & refreshToken.
             try {
                 await User.Oauth.setAuthState(object.token, object.refreshToken);
                 authenticated.set(true)
