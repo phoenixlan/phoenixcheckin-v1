@@ -35,8 +35,6 @@
 		justify-content: space-between;
 		align-items: center;
 
-		width: 100vw;
-
 		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 	}
 	nav > * {
