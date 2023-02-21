@@ -72,7 +72,7 @@
 		}
 	}
 	checkAuth()
-	let ticketNum
+	let ticketNumber
 </script>
 
 	{#if !authenticated}
@@ -87,8 +87,8 @@
 			<button on:click={logout}>Logg ut</button>
 		</nav>
 		<main>
-			<input placeholder="Bilett-ID" type="number" min="1" bind:value={ticketNum}>
-			<Infocontainer ticketNumber={ticketNum}/>
+			<input placeholder="Bilett-ID" type="number" min="1" bind:value={ticketNumber}>
+			<Infocontainer ticketNumber={ticketNumber}/>
 		</main>
 	{/if}
 

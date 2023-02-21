@@ -74,7 +74,7 @@
 						{/if}
 						
 				{:else}
-					<i>Biletten tilhører ikke pågående event</i>
+					<i>Denne biletten tilhører ikke pågående event</i>
 				{/if}
 				{:catch error}
 				<p>Kunne ikke hente bilett data. Er dette ett gyldig bilett nummer?<br><br><i>{error}</i></p>
