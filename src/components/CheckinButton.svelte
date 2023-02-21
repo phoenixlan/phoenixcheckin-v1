@@ -22,6 +22,6 @@
 		max-width: fit-content;
 		margin: auto;
 	}
-    .checked-in	   {color:white; background-color:rgb(90, 195, 154);}
-	.not-checked-in{color:white; background-color:rgb(195, 90, 90);}
+    .checked-in	   {background-color:rgb(90, 195, 154);}
+	.not-checked-in{background-color:rgb(195, 90, 90);}
 </style>

@@ -63,18 +63,19 @@
 		grid-template-columns: 1fr 1fr; 
 		gap: 10px;
 		
-		min-height: 350px;
+		min-height: 400px;
 	}
 	section{
 		text-align: left;
 		float: left;
 		
-		background-color: rgb(240, 240, 240);
-		border: 2px solid rgb(61, 61, 61);
-		border-radius: 2px;
-		box-shadow: 2px 2px 1px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+		background-color: rgba(0, 0, 0, 0.05);
+		/* outline: 0.1rem solid rgb(61, 61, 61); */
+		border-radius: 0.25rem;
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
 		
-		padding: 10px;
-		width: 350px;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 400px;
 	}
 </style>

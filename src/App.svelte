@@ -9,19 +9,22 @@
 
 	{#if !($authenticated)}
 		<main>
-			<span>Velkommen til Phoenix LAN sin innsjekk-side</span>
-			<button on:click={login}>Logg Inn</button>
+			<img src="./logo.svg" alt="">
+			<div class="welcomecontainer">
+				<h1>Phoenix Innsjekk</h1>
+				<button on:click={login} class="loginbutton"><span>Logg inn</span></button>
+			</div>
 		</main>
 	{:else}
 		<nav>
 			<a href="/">
 				<img src="./logo.svg" alt="">
-				<span>Phoenix Insjekk</span>
+				<span class="navtitle">Phoenix Innsjekk</span>
 			</a>
-			<button on:click={logout}>Logg ut</button>
+			<button on:click={logout} class="logoutbutton"><span>Logg ut</span></button>
 		</nav>
 		<main>
-			<input placeholder="Bilett-ID" type="number" min="1" bind:value={ticketNumber}>
+			<input placeholder="Bilett-ID" type="number" inputmode="numeric" min="1" bind:value={ticketNumber}>
 			<Infocontainer ticketNumber={ticketNumber}/>
 		</main>
 	{/if}
@@ -36,8 +39,10 @@
 
 		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 	}
-	nav > *{
+	nav > * {
 		margin: 5px;
+	}
+	nav .navtitle{
 		font-size: 1.5rem;
 	}
 	nav a {
@@ -55,7 +60,8 @@
 		max-height: 100%;
 	}
 	main {
-		margin: 20px;
+		padding: 1rem;
+		gap: 1rem;
 		text-align: center;
 
 		display: flex;
@@ -63,11 +69,41 @@
 		align-items: center;
 		flex-direction: column;
 	}
+	main img {
+		height: 20em;
+	}
+	main input {
+		margin-bottom: 0;
+	}
 
 	:global(button){
-		cursor:pointer;
-		padding: 10px;
-		margin-bottom: 0;
+		position: relative;
+		cursor: pointer;
+		border: none;
+		font-weight: normal;
+		font-size: 1rem;
+		padding: 0rem 1rem;
+		border-radius: 0.25rem;
+		height: 3rem;
+		color: white;
+	}
+	.loginbutton {
+		background-color: rgb(255, 75, 157);
+		min-width: 9.5rem;
+		margin: 15px;
+	}
+	.logoutbutton {
+		color: #212529;
+		background-color: #f4f4f4;
+		border: 1px solid #ccc;
+	}
+	input {
+		padding: 1em;
+	}
+	.welcomecontainer {
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+		border-radius: 0.25rem;
+		width: 450px;
 	}
 
 	@media (min-width: 640px) {
