@@ -24,7 +24,7 @@
 			<button on:click={logout} class="logoutbutton"><span>Logg ut</span></button>
 		</nav>
 		<main>
-			<input placeholder="Bilett-ID" type="number" inputmode="numeric" min="1" bind:value={ticketNumber}>
+			<input placeholder="Billett-ID" type="number" inputmode="numeric" min="1" bind:value={ticketNumber}>
 			<Infocontainer ticketNumber={ticketNumber}/>
 		</main>
 	{/if}
@@ -99,6 +99,7 @@
 	}
 	input {
 		padding: 1em;
+		text-align: center;
 	}
 	.welcomecontainer {
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
