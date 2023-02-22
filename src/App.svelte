@@ -1,18 +1,30 @@
 <script>
 	import Infocontainer from './components/InfoContainer.svelte';
 	
-	import { authenticated, login, logout, checkAuth } from "./auth"
-	checkAuth()
+	import * as auth from "./auth"
+	auth.checkAuth()
 
 	let ticketNumber
+	function validateInput() {
+		let value = document.querySelector("input").value
+		if (value === "") {
+			return ticketNumber = value
+		}
+		value = Math.abs(Number.parseInt(value))
+		if (isNaN(value)) {
+			return console.warn('The input is not a number')
+		} else {
+			return ticketNumber = value
+		}
+	}
 </script>
 
-	{#if !($authenticated)}
+	{#if !(auth.authenticated)}
 		<main>
 			<img src="./logo.svg" alt="">
 			<div class="welcomecontainer">
 				<h1>Phoenix Innsjekk</h1>
-				<button on:click={login} class="loginbutton"><span>Logg inn</span></button>
+				<button on:click={auth.login} class="loginbutton"><span>Logg inn</span></button>
 			</div>
 		</main>
 	{:else}
@@ -21,10 +33,10 @@
 				<img src="./logo.svg" alt="">
 				<span class="navtitle">Phoenix Innsjekk</span>
 			</a>
-			<button on:click={logout} class="logoutbutton"><span>Logg ut</span></button>
+			<button on:click={auth.logout} class="logoutbutton"><span>Logg ut</span></button>
 		</nav>
 		<main>
-			<input placeholder="Billett-ID" type="number" inputmode="numeric" min="1" bind:value={ticketNumber}>
+			<input placeholder="Billett-ID" type="number" inputmode="numeric" min="1" on:input={validateInput}>
 			<Infocontainer ticketNumber={ticketNumber}/>
 		</main>
 	{/if}
@@ -34,8 +46,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
-		width: 100vw;
 
 		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 	}
@@ -106,10 +116,6 @@
 	input::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
-	}
-	/* Firefox */
-	input[type="number"] {
-		-moz-appearance: textfield;
 	}
 	.welcomecontainer {
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
