@@ -5,6 +5,18 @@
 	checkAuth()
 
 	let ticketNumber
+	function validateInput() {
+		let value = document.querySelector("input").value
+		if (value === "") {
+			return ticketNumber = value
+		}
+		value = Math.abs(Number.parseInt(value))
+		if (isNaN(value)) {
+			return console.warn('The input is not a number')
+		} else {
+			return ticketNumber = value
+		}
+	}
 </script>
 
 	{#if !($authenticated)}
@@ -24,7 +36,7 @@
 			<button on:click={logout} class="logoutbutton"><span>Logg ut</span></button>
 		</nav>
 		<main>
-			<input placeholder="Billett-ID" type="number" inputmode="numeric" min="1" bind:value={ticketNumber}>
+			<input placeholder="Billett-ID" type="number" inputmode="numeric" min="1" on:input={validateInput}>
 			<Infocontainer ticketNumber={ticketNumber}/>
 		</main>
 	{/if}
