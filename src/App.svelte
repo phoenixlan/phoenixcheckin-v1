@@ -1,10 +1,11 @@
 <script>
 	import Infocontainer from './components/InfoContainer.svelte';
 	
-	import * as auth from "./auth"
-	auth.checkAuth()
+	import { checkAuth, authenticated, login, logout } from "./auth"
+	checkAuth()
 
 	let ticketNumber
+	
 	function validateInput() {
 		let value = document.querySelector("input").value
 		if (value === "") {
@@ -19,12 +20,12 @@
 	}
 </script>
 
-	{#if !(auth.authenticated)}
+	{#if !($authenticated)}
 		<main>
 			<img src="./logo.svg" alt="">
 			<div class="welcomecontainer">
 				<h1>Phoenix Innsjekk</h1>
-				<button on:click={auth.login} class="loginbutton"><span>Logg inn</span></button>
+				<button on:click={login} class="loginbutton"><span>Logg inn</span></button>
 			</div>
 		</main>
 	{:else}
@@ -33,7 +34,7 @@
 				<img src="./logo.svg" alt="">
 				<span class="navtitle">Phoenix Innsjekk</span>
 			</a>
-			<button on:click={auth.logout} class="logoutbutton"><span>Logg ut</span></button>
+			<button on:click={logout} class="logoutbutton"><span>Logg ut</span></button>
 		</nav>
 		<main>
 			<input placeholder="Billett-ID" type="number" inputmode="numeric" min="1" on:input={validateInput}>
@@ -47,7 +48,7 @@
 		justify-content: space-between;
 		align-items: center;
 
-		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+		box-shadow: inset 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 	}
 	nav > * {
 		margin: 5px;
@@ -89,7 +90,7 @@
 	:global(button){
 		position: relative;
 		cursor: pointer;
-		border: none;
+		/* border: none; */
 		font-weight: normal;
 		font-size: 1rem;
 		padding: 0rem 1rem;
@@ -110,6 +111,7 @@
 	input {
 		padding: 1em;
 		text-align: center;
+		border-radius: 0.25rem;
 	}
 	/* Chrome, Safari, Edge, Opera */
 	input::-webkit-outer-spin-button,

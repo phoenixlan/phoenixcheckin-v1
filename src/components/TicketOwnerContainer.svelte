@@ -15,6 +15,19 @@
 </section>
 
 <style>
+	section{
+		text-align: left;
+		float: left;
+		
+		background-color: rgba(0, 0, 0, 0.05);
+		/* outline: 0.1rem solid rgb(61, 61, 61); */
+		border-radius: 0.25rem;
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+		
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 400px;
+	}
     section h1{
         text-align: center;
     }
