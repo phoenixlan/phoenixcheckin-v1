@@ -18,7 +18,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "@phoenixlan/phoenix.js": "^2.26.0",
+    "@phoenixlan/phoenix.js": "^3.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-replace": "^2.4.2",
     "dotenv": "^16.0.3",

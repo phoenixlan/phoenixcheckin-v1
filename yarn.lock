@@ -111,12 +111,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@phoenixlan/phoenix.js@npm:^2.26.0":
-  version: 2.27.0
-  resolution: "@phoenixlan/phoenix.js@npm:2.27.0"
+"@phoenixlan/phoenix.js@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@phoenixlan/phoenix.js@npm:3.1.0"
   dependencies:
     jwt-decode: ^3.1.2
-  checksum: d17f6f283488d3f948ed21d7bd6313b79d9d6e8ac837f5e20eb2a17100337453fb851215f7b4c5c99b8a02bb57585c53fa7259df733df8575a9d3040ef0eee94
+  checksum: 51671ea0ce70564009daa4a35c9d0ea9be39eadcbf8ecbd39b79cf285d24082fe667a8e3ae4aa9417b2200f1b87ea63539e30d89ab9c4cacfdd02171a47156e7
   languageName: node
   linkType: hard
 
@@ -1292,7 +1292,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "phoenixcheckin-v1@workspace:."
   dependencies:
-    "@phoenixlan/phoenix.js": ^2.26.0
+    "@phoenixlan/phoenix.js": ^3.1.0
     "@rollup/plugin-commonjs": ^17.1.0
     "@rollup/plugin-json": ^6.0.0
     "@rollup/plugin-node-resolve": ^11.2.1
