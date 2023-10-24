@@ -1,4 +1,6 @@
 <script>
+	import { SvelteToast } from "@zerodevx/svelte-toast"
+
 	import Infocontainer from './components/InfoContainer.svelte';
 	
 	import { checkAuth, authenticated, login, logout } from "./auth"
@@ -19,6 +21,8 @@
 		}
 	}
 </script>
+
+	<SvelteToast/>
 
 	{#if !($authenticated)}
 		<main>

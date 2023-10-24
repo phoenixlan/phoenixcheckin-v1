@@ -262,6 +262,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zerodevx/svelte-toast@npm:^0.9.5":
+  version: 0.9.5
+  resolution: "@zerodevx/svelte-toast@npm:0.9.5"
+  peerDependencies:
+    svelte: ^3.57.0 || ^4.0.0
+  checksum: 155c1f70339435f481853a3eaefaf52cf917ac7fbc3ba11ae4825aa0f84394d9f83e245e79667aa4fda21f0e4b242b70bea81def58ccfb0b94f48c34393316bc
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^1.0.0":
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
@@ -1297,6 +1306,7 @@ __metadata:
     "@rollup/plugin-json": ^6.0.0
     "@rollup/plugin-node-resolve": ^11.2.1
     "@rollup/plugin-replace": ^2.4.2
+    "@zerodevx/svelte-toast": ^0.9.5
     dotenv: ^16.0.3
     rollup: ^2.3.4
     rollup-plugin-css-only: ^3.1.0
